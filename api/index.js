@@ -3,12 +3,13 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import user from './routes/user.js';
+import userRoutes from './routes/user.js';
 
 const app = express();
 
 app.use(express.json({ limit: '30mb' }));
-app.use('/user', user);
+
+app.use('/user', userRoutes);
 
 const CONNECTION_URL = process.env.CONNECTION_URL
 const PORT = process.env.PORT || 3001
