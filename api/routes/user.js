@@ -3,7 +3,7 @@ import { signIn, signUp } from '../controllers/user.js';
 
 const router = express.Router();
 
-router.post('/signup', signIn)
-router.post('/signin', signUp)
+router.post('/signup', signUp)
+router.post('/signin', signIn)
 
 export default router;
