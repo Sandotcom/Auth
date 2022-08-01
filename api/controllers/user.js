@@ -6,6 +6,7 @@ import User from '../models/User.js'
 export const signIn = (req, res) => {
   
 }
+
 export const signUp = (req, res) => {
 
 }
