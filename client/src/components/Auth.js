@@ -3,12 +3,14 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Input from './Input';
+
+import { GoogleLogin } from '@react-oauth/google';
+import { Grid } from '@mui/material';
 
 const Auth = () => {
   const [isUser, setIsUser] = useState(true)
@@ -59,14 +61,23 @@ const Auth = () => {
 
             <Button
               type="submit"
-              fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, width: 328, alignSelf: 'center' }}
             >
               {isUser ? 'Sign In' : 'Sign Up'}
             </Button>
-            <Grid container>
-              <Grid item>
+
+            <GoogleLogin 
+                  onSuccess={(response) => console.log(response)}
+                  onError={() => console.log('Error')}
+                  size='medium'
+                  text={isUser ? 'signin_with' : 'signup_with'}
+                  width='328'
+                />
+            
+
+            <Grid sx={{ mt: 2 }} container>
+              <Grid item xs>
                 <Link onClick={handleClick} href="#" variant="body2">
                   {isUser ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}
                 </Link>
